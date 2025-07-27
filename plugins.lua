@@ -1,4 +1,4 @@
--- lua/custom/plugins.lua
+-- lua/nvcustom/plugins.lua
 
 return {
   {
