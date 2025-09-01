@@ -9,5 +9,25 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-  }
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- Add your parsers to the existing list
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        "bash",
+        "markdown",
+        "haskell",
+        "yaml",
+      })
+
+      -- Add or override highlight settings
+      opts.highlight = opts.highlight or {}
+      opts.highlight.enable = true
+      opts.highlight.use_language_tree = true
+    end,
+  },
 }
+
