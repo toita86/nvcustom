@@ -29,5 +29,13 @@ return {
       opts.highlight.use_language_tree = true
     end,
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- use the latest stable release
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
 }
 
