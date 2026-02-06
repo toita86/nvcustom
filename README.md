@@ -27,6 +27,7 @@ Then import your custom modules inside `nvim/lua/plugins/init.lua` like:
 ```
 nvcustom/
 ├── plugins.lua      -- Additional plugins
+├── lsp.lua      -- LSP configuration
 └── README.md
 ```
 
