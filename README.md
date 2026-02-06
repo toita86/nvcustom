@@ -1,6 +1,6 @@
 # nvcustom
 
-🛠️ My custom configuration layer for [NvChad](https://github.com/NvChad/NvChad)
+My custom configuration layer for [NvChad](https://github.com/NvChad/NvChad)
 
 This repository contains my personal Neovim tweaks built on top of NvChad, including:
 
