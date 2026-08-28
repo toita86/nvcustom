@@ -9,6 +9,8 @@ return {
       vim.lsp.config("pyright", {
         settings = {
           python = {
+            venvPath = ".",
+            venv= ".venv",
             analysis = {
               typeCheckingMode = "basic",
               autoImportCompletions = true,
