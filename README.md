@@ -1,37 +1,46 @@
 # nvcustom
 
-My custom configuration layer for [NvChad](https://github.com/NvChad/NvChad)
-
-This repository contains my personal Neovim tweaks built on top of NvChad, including:
-
-- 🧩 Additional plugins
-- ⚙️ Custom plugin configurations
-- 🗂️ Modular structure for easy maintenance
+My custom configuration layer for [NvChad](https://github.com/NvChad/NvChad).
 
 ## Usage
 
-Clone this repo into your NvChad config directory:
+Clone this repository into the `lua` directory of your NvChad configuration:
 
 ```bash
 git clone https://github.com/toita86/nvcustom ~/.config/nvim/lua/nvcustom
-````
+```
 
-Then import your custom modules inside `nvim/lua/plugins/init.lua` like:
+The small adapter files in the NvChad starter configuration load these
+modules. Keep those adapters when creating a new environment, or add the same
+imports to your own starter configuration.
+
+The plugin entry point loads the custom plugin, LSP, and DAP specifications:
 
 ```lua
-{ import = "nvcustom.plugins" }
+{ import = "nvcustom.plugins" },
+{ import = "nvcustom.lsp" },
+{ import = "nvcustom.dap" },
 ```
 
 ## Structure
 
-```
+```text
 nvcustom/
-├── plugins.lua      -- Additional plugins
-├── lsp.lua      -- LSP configuration
+├── chadrc.lua       -- Theme and NvChad UI settings
+├── options.lua      -- Editor options
+├── mappings.lua     -- Personal keymaps
+├── autocmds.lua     -- Personal autocmds
+├── configs/         -- Plugin-specific configuration
+├── plugins.lua      -- Plugin specifications
+├── lsp.lua          -- LSP configuration
+├── dap.lua          -- Debug adapter configuration
 └── README.md
 ```
+
+Mason automatically installs the configured formatters: `black`, `mdformat`,
+and `stylua`. Use `:ConformInfo` to see which formatter Conform is using for
+the current buffer.
 
 ## License
 
 MIT
-

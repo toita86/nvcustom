@@ -8,7 +8,13 @@ return {
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      completions = {
+        lsp = {
+          enabled = true,
+        },
+      },
+    },
   },
 
   {
@@ -55,7 +61,7 @@ return {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     opts = function()
-      return require "configs.nvimtree"
+      return require "nvcustom.configs.nvimtree"
     end,
   },
 }
