@@ -41,6 +41,12 @@ Mason automatically installs the configured formatters: `black`, `mdformat`,
 and `stylua`. Use `:ConformInfo` to see which formatter Conform is using for
 the current buffer.
 
+Search and replace is provided by Spectre:
+
+- `<Space>sr` searches and replaces in the current buffer.
+- `<Space>sR` searches and replaces across the project.
+- `<Space>sw` searches and replaces the current selection or word.
+
 ## License
 
 MIT

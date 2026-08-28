@@ -64,4 +64,10 @@ return {
       return require "nvcustom.configs.nvimtree"
     end,
   },
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = "Spectre",
+    opts = {},
+  },
 }
