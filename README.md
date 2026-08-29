@@ -47,6 +47,10 @@ Search and replace is provided by Spectre:
 - `<Space>sR` searches and replaces across the project.
 - `<Space>sw` searches and replaces the current selection or word.
 
+`<Space>tt` toggles between the two themes listed in
+`lua/nvcustom/mappings.lua`. Change the `toggle_themes` list there to choose
+your own pair.
+
 ## License
 
 MIT

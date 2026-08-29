@@ -2,7 +2,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox_light",
+  theme = "chadracula",
 }
 
 M.nvdash = {

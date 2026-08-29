@@ -7,6 +7,20 @@ map("n", "gx", function()
   vim.ui.open(vim.fn.expand "%:p")
 end, { desc = "Open file externally" })
 
+-- Change these two names to the themes you want to toggle between.
+local toggle_themes = { "gruvbox_light", "chadracula" }
+
+map("n", "<leader>tt", function()
+  local current = require("nvconfig").base46.theme
+  local next_theme = toggle_themes[1]
+
+  if current == toggle_themes[1] then
+    next_theme = toggle_themes[2]
+  end
+
+  require("nvchad.themes.utils").reload_theme(next_theme)
+end, { desc = "Toggle theme between d/l presets" })
+
 local function project_root()
   local result = vim.fn.systemlist {
     "git",
