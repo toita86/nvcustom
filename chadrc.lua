@@ -24,6 +24,7 @@ M.ui = {
       "diagnostics",
       "lsp",
       "python_env",
+      "cpp_standard",
       "cwd",
       "cursor",
     },
