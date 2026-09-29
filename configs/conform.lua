@@ -1,10 +1,16 @@
 return {
   formatters_by_ft = {
     lua = { "stylua" },
-    python = { "black" },
+    python = { "black", "isort" },
     markdown = {
       "mdformat",
       extra_args = { "--extensions", "myst" },
+    },
+  },
+
+  formatters = {
+    isort = {
+      prepend_args = { "--profile", "black" },
     },
   },
 

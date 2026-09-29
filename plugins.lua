@@ -70,4 +70,39 @@ return {
     cmd = "Spectre",
     opts = {},
   },
+  {
+    "AbysmalBiscuit/insert-inlay-hints.nvim",
+    ft = "python",
+    keys = {
+      {
+        "<leader>ic",
+        function()
+          require("insert-inlay-hints").closest()
+        end,
+        desc = "Insert closest type hint",
+      },
+      {
+        "<leader>il",
+        function()
+          require("insert-inlay-hints").line()
+        end,
+        desc = "Insert type hints on line",
+      },
+    },
+    opts = {
+      enabled_filetypes = { "python" },
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = {
+        "black",
+        "isort",
+        "mdformat",
+        "stylua",
+      },
+    },
+  },
 }

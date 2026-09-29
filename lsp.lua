@@ -6,14 +6,21 @@ return {
       vim.lsp.config("hls", {})
 
       -- Python
-      vim.lsp.config("pyright", {
+      vim.lsp.config("basedpyright", {
         settings = {
           python = {
             venvPath = ".",
-            venv= ".venv",
+            venv = ".venv",
+          },
+          basedpyright = {
             analysis = {
               typeCheckingMode = "basic",
               autoImportCompletions = true,
+              inlayHints = {
+                variableTypes = true,
+                functionReturnTypes = true,
+                callArgumentNames = true,
+              },
             },
           },
         },
@@ -22,7 +29,7 @@ return {
       -- C / C++
       vim.lsp.config("clangd", {
         cmd = {
-          "clangd-14",
+          "clangd",
           "--background-index",
           "--clang-tidy",
           "--query-driver=/usr/bin/clang++",
@@ -39,7 +46,7 @@ return {
       -- Enable servers
       vim.lsp.enable {
         "hls",
-        "pyright",
+        "basedpyright",
         "clangd",
         "neocmake",
       }
@@ -53,11 +60,10 @@ return {
 
       vim.list_extend(opts.ensure_installed, {
         "hls", -- Haskell
-        "pyright", -- Python
+        "basedpyright", -- Python
         "clangd", -- C/C++
         "neocmake", -- neocmake
       })
     end,
   },
-
 }

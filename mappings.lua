@@ -3,8 +3,14 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<Esc>")
 
-map("n", "gx", function()
-  vim.ui.open(vim.fn.expand "%:p")
+map("n", "<leader>gx", function()
+  local file = vim.fn.expand "%:p"
+
+  if vim.bo.filetype == "pdf" then
+    vim.fn.jobstart({ "firefox", file }, { detach = true })
+  else
+    vim.ui.open(file)
+  end
 end, { desc = "Open file externally" })
 
 -- Change these two names to the themes you want to toggle between.
@@ -20,6 +26,11 @@ map("n", "<leader>tt", function()
 
   require("nvchad.themes.utils").reload_theme(next_theme)
 end, { desc = "Toggle theme between d/l presets" })
+
+map("n", "<leader>ui", function()
+  local enabled = vim.lsp.inlay_hint.is_enabled { bufnr = 0 }
+  vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
+end, { desc = "Toggle inlay hints" })
 
 local function project_root()
   local result = vim.fn.systemlist {
